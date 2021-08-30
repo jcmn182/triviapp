@@ -2,7 +2,7 @@ const makeUrl = document.getElementById("triviaForm");
 const card = document.getElementById("card");
 let p = 0;
 let s = 0;
-
+/*function that create a URL dinamic with the imputs from the index html*/
 const createApiUrl = e => {
   e.preventDefault();
   let difficulty = document.getElementById("difficulty").value;
@@ -12,7 +12,7 @@ const createApiUrl = e => {
   const API = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
   fetchDataAPI(API);
 };
-
+/*function that make the request from the api and give us a response */
 async function fetchDataAPI (url) {
     try {
         const response = await fetch(url);
@@ -24,20 +24,14 @@ async function fetchDataAPI (url) {
         console.log(error)
     }
 };
-
-
-
+/*function that paint in html the fist element from the json*/
 const paint = (data,dataLenght) => {
-    /*
-    if (position < dataLenght - 1) {
-        console.log(position) console.log(dataLenght - 1);}*/
     let positionAnswer = Math.floor(Math.random() * 3);
     let answers = data[p].incorrect_answers;
     let correctAnswer = data[p].correct_answer;
     console.log(data)
 
-    if (data[0].incorrect_answers.length > 1){
-        
+    if (data[0].incorrect_answers.length > 1){  
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
         `<h2> Categoty :${data[p].category}</h2>
@@ -51,9 +45,7 @@ const paint = (data,dataLenght) => {
                 </div> 
                 <button id="next">Next</button>`
     }
-    
-    else{
-        
+    else{  
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = `<h2> Categoty :${data[p].category}</h2>
         <h3> Difficulty :${data[p].difficulty}</h3>
@@ -64,25 +56,32 @@ const paint = (data,dataLenght) => {
         </div>
         <button id="next">Next</button>`       
     }
-
-
    const questions = document.getElementById("questions"); 
    const next = document.getElementById("next");
-   questions.addEventListener('click',(e)=>{answer(e,data)});
-   next.addEventListener('click',()=>{nextQuestion(data,dataLenght)});
-  
-  
+   questions.addEventListener('click',(e)=>{answer(e,data)}); 
+   next.addEventListener('click',()=>{nextQuestion(data,dataLenght)});  
 }
 
 
-
+/*a funcion that store and control the score from the questions*/
 function answer(e,data){
+
+    if(s===p || s < p  ){
+
     if(e.target.textContent === data[p].correct_answer){
         s += 1;
+       
+        console.log(s)
+    } }
+
+    else if (s===p || s > p && e.target.textContent !== data[p].correct_answer ){
+        s -= 1;
         console.log(s)
     }
 }
 
+    
+/*function that paint in html the fist the nexts question from the json*/
 function nextQuestion(data,dataLenght){
     p += 1
     let positionAnswer = Math.floor(Math.random() * 3);
@@ -105,9 +104,7 @@ function nextQuestion(data,dataLenght){
                 </div> 
                 <button id="next">Next</button>`
     }
-    
-    else{
-        
+    else{   
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = `<h2> Categoty :${data[p].category}</h2>
         <h3> Difficulty :${data[p].difficulty}</h3>
@@ -120,7 +117,7 @@ function nextQuestion(data,dataLenght){
     }
     const questions = document.getElementById("questions"); 
     const next = document.getElementById("next");
-    questions.addEventListener('click',(e)=>{answer(e,data)});
+    questions.addEventListener('click',(e)=>{answer(e,data);});
     if (p<dataLenght - 1){
         next.addEventListener('click',()=>{nextQuestion(data,dataLenght)});
     }
@@ -129,6 +126,10 @@ function nextQuestion(data,dataLenght){
     }
 }
 
+
+
+
+/*function that show us our score and allow play again */
 function finalQuestion(s,dataLenght){
     let percentage = (s*100) / dataLenght;
     console.log(percentage)   
@@ -148,12 +149,12 @@ function finalQuestion(s,dataLenght){
    else  {
     card.innerHTML = `
         <h2>Your score is ${s}!!</h2>
-        <p>You need to go back to school :(</p>
+        <p>You need go back to school :(</p>
         <a href="">Play again</a>`
    }
 }
 
 makeUrl.onsubmit = createApiUrl;
 
-export{makeUrl,};
+
 
