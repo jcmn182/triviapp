@@ -1,0 +1,108 @@
+@import "./reset.css";
+@import "./variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&family=Roboto&display=swap');
+
+body{
+    background-color: var(--color_two);
+}
+
+/*style to text TRIVIAPP*/
+h1 {
+    color: var(--color_three);
+    font-family: var(--font_family_one);
+    font-size: 5vw;
+    text-align: center;
+    margin: 5px;
+}
+
+/*style to input section*/
+
+.form_container_one, .form_container_two, .form_container_three, .form_container_four{
+    color: var(--color_three);
+    display: flex;
+    font-size: 3vw;
+    align-items: center;
+    flex-direction: column;
+    font-family:var(--font_family_two);
+    margin: 15px 0px 0px 15px;
+}
+
+.form_container_one input{
+    color: var(--color_two);
+    background-color: var(--color_three);
+    border: none;
+    border-radius: 10px;
+    font-size: 3vw;
+    margin-top: 10px;
+    padding: 3px 10px 3px 10px;
+    text-align: center;
+}
+
+.form_container_two select, 
+.form_container_three select, 
+.form_container_four select {
+    color: var(--color_two);
+    background-color: var(--color_three);
+    border:none;
+    border-radius: 10px;
+    font-size: 3vw;
+    margin-top: 10px;
+    padding: 3px 10px 3px 10px;
+    text-align-last: center;
+}
+
+
+.form_container_four input{
+    color: var(--color_three);
+    background-color: var(--color_two);
+    border: 2px solid var(--color_three) ;
+    border-radius: 5px;
+    font-size: 3vw;
+    margin-top: 30px;
+    padding: 3px 20px 3px 20px;
+    text-align-last: center;
+}
+
+/*responsive*/
+
+@media screen and (max-width: 600px){
+    /*responsive to input section*/
+    h1 {
+        font-size: 10vw;
+    }
+    
+    .form_container_one, 
+    .form_container_two, 
+    .form_container_three, 
+    .form_container_four,
+    .form_container_one input,
+    .form_container_two select, 
+    .form_container_three select, 
+    .form_container_four select, 
+    .form_container_four input
+    {
+        font-size: 5vw;
+    }
+
+}
+
+@media screen and (max-width: 420px){
+    /*responsive to input section*/
+    h1 {
+        font-size: 16vw;
+    }
+    
+    .form_container_one, 
+    .form_container_two, 
+    .form_container_three, 
+    .form_container_four,
+    .form_container_one input,
+    .form_container_two select, 
+    .form_container_three select, 
+    .form_container_four select, 
+    .form_container_four input
+    {
+        font-size: 8vw;
+    }
+
+}

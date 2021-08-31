@@ -34,7 +34,8 @@ const paint = (data,dataLenght) => {
     if (data[0].incorrect_answers.length > 1){  
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
-        `<h2> Categoty :${data[p].category}</h2>
+        `<div class="card_question">
+            <h2> Categoty :${data[p].category}</h2>
             <h3> Difficulty :${data[p].difficulty}</h3>
                 <p>Question: ${data[p].question}</p>
                 <div id="questions">
@@ -43,7 +44,8 @@ const paint = (data,dataLenght) => {
                     <p>${data[p].incorrect_answers[2]}</p>
                     <p>${data[p].incorrect_answers[3]}</p>  
                 </div> 
-                <button id="next">Next</button>`
+                <button id="next">Next</button>
+            </div> `
     }
     else{  
         answers.splice(positionAnswer,0,correctAnswer)
