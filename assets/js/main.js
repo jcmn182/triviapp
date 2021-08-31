@@ -35,30 +35,34 @@ const paint = (data,dataLenght) => {
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
         `<div class="card_question">
-            <h2> Categoty :${data[p].category}</h2>
-            <h3> Difficulty :${data[p].difficulty}</h3>
-                <p>Question: ${data[p].question}</p>
-                <div id="questions">
-                    <p>${data[p].incorrect_answers[0]}</p>
-                    <p>${data[p].incorrect_answers[1]}</p>
-                    <p>${data[p].incorrect_answers[2]}</p>
-                    <p>${data[p].incorrect_answers[3]}</p>  
+            <h2> Category <br> <span>${data[p].category}</span></h2>
+            <h3> Difficulty <br> <span>${data[p].difficulty}</span></h3>
+                <h4>Question <br> <span>${data[p].question}</span></h4>
+                <div id="questions" class="question_one" >
+                <div class="data_container_answer_one">
+                    <p> 1.- ${data[p].incorrect_answers[0]}</p>
+                    <p> 2.- ${data[p].incorrect_answers[1]}</p>
                 </div> 
-                <button id="next">Next</button>
+                <div class="data_container_answer_two">   
+                    <p> 3.- ${data[p].incorrect_answers[2]}</p>
+                    <p> 4.- ${data[p].incorrect_answers[3]}</p>  
+                </div>    
+                </div> 
+                <button id="next" class="next">Next</button>
             </div> `
     }
     else{  
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
         `<div class="card_question">
-            <h2> Categoty :${data[p].category}</h2>
-            <h3> Difficulty :${data[p].difficulty}</h3>
-            <p>Question: ${data[p].question}</p>
-            <div id="questions">
+            <h2>Categoty<br><span>${data[p].category}</span></h2>
+            <h3>Difficulty<br><span>${data[p].difficulty}</span></h3>
+            <h4>Question<br><span>${data[p].question}</span></h4>
+            <div id="questions" class="question_two">
                 <p>${data[p].incorrect_answers[0]}</p>
                 <p>${data[p].incorrect_answers[1]}</p>
             </div>
-            <button id="next">Next</button>
+            <button id="next" class="next">Next</button>
          </div>`       
     }
    const questions = document.getElementById("questions"); 
@@ -98,27 +102,36 @@ function nextQuestion(data,dataLenght){
         
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
-        `<h2> Categoty :${data[p].category}</h2>
-            <h3> Difficulty :${data[p].difficulty}</h3>
-                <p>Question: ${data[p].question}</p>
-                <div id="questions">
+        `<div class="card_question">
+            <h2>Categoty<br><span>${data[p].category}</span></h2>
+            <h3>Difficulty<br><span>${data[p].difficulty}</span></h3>
+                <h4>Question<br><span>${data[p].question}</span></h4>
+                <div id="questions" class="question_one">
+                <div class="data_container_answer_one">
                     <p>${data[p].incorrect_answers[0]}</p>
                     <p>${data[p].incorrect_answers[1]}</p>
-                    <p>${data[p].incorrect_answers[2]}</p>
-                    <p>${data[p].incorrect_answers[3]}</p>
                 </div> 
-                <button id="next">Next</button>`
+                <div class="data_container_answer_one">   
+                    <p>${data[p].incorrect_answers[2]}</p>
+                    <p>${data[p].incorrect_answers[3]}</p>  
+                </div>    
+                </div> 
+                <button id="next" class="next">Next</button>
+            </div> `
     }
     else{   
         answers.splice(positionAnswer,0,correctAnswer)
-        card.innerHTML = `<h2> Categoty :${data[p].category}</h2>
-        <h3> Difficulty :${data[p].difficulty}</h3>
-        <p>Question: ${data[p].question}</p>
-        <div id="questions">
-            <p>${data[p].incorrect_answers[0]}</p>
-            <p>${data[p].incorrect_answers[1]}</p>
-        </div> 
-        <button id="next">Next</button>`       
+        card.innerHTML = 
+        `<div class="card_question">
+            <h2> Categoty <br><span>${data[p].category}</span></h2>
+            <h3> Difficulty <br><span>${data[p].difficulty}</span></h3>
+            <h4>Question <br><span>${data[p].question}</span></h4>
+            <div id="questions" class="question_two">
+                <p>${data[p].incorrect_answers[0]}</p>
+                <p>${data[p].incorrect_answers[1]}</p>
+            </div>
+            <button id="next" class="next">Next</button>
+         </div>`            
     }
     const questions = document.getElementById("questions"); 
     const next = document.getElementById("next");
@@ -141,21 +154,27 @@ function finalQuestion(s,dataLenght){
 
     if (percentage>80){
     card.innerHTML = `
-        <h2>Your score is ${s}!!</h2>
-        <p>Congrats!!</p>
-        <a href="">Play again</a>`
+        <div class="card_final_score">
+            <h2>Your score is ${s}!!</h2>
+            <p>Congrats!!</p>
+            <a href="">Play again</a>
+        </div>`
     }
    else if  (percentage>50){
     card.innerHTML = `
+    <div class="card_final_score">
         <h2>Your score is ${s}!!</h2>
         <p>You should study a little</p>
-        <a href="">Play again</a>`
+        <a href="">Play again</a>
+    </div> `
    }
    else  {
     card.innerHTML = `
+    <div class="card_final_score">
         <h2>Your score is ${s}!!</h2>
         <p>You need go back to school :(</p>
-        <a href="">Play again</a>`
+        <a href="">Play again</a>
+    </div>`
    }
 }
 

@@ -27,17 +27,7 @@ h1 {
     margin: 15px 0px 0px 15px;
 }
 
-.form_container_one input{
-    color: var(--color_two);
-    background-color: var(--color_three);
-    border: none;
-    border-radius: 10px;
-    font-size: 3vw;
-    margin-top: 10px;
-    padding: 3px 10px 3px 10px;
-    text-align: center;
-}
-
+.form_container_one select,
 .form_container_two select, 
 .form_container_three select, 
 .form_container_four select {
@@ -67,6 +57,52 @@ h1 {
 
 .card_question{
     background-color: var(--color_two);
+    color:var(--color_three);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 1; 
+}
+
+.card_question h2, h3, h4{
+    font-family: var( --font_family_one);
+    font-size: 3vw;
+    text-align: center;
+}
+
+.card_question span {
+    font-family: var( --font_family_two);
+    font-size: 2vw;
+}
+
+.question_one{
+    display: flex;
+    justify-content: space-around;
+    font-family: var( --font_family_two);
+    font-size: 2vw;
+    margin: 20px;
+    width: 50%;
+}
+
+.data_container_answer_one p, 
+.data_container_answer_two p{
+    padding: 10px;
+}
+
+.question_two{
+    display: flex;
+    justify-content: space-around;
+    font-size: 2vw;
+    margin: 20px;
+    width: 30%;
+}
+
+.card_final_score{
+    background-color: var(--color_two);
     height: 100%;
     width: 100%;
     position: fixed; 
@@ -76,6 +112,16 @@ h1 {
     transition: .3s; 
 }
 
+.next{
+    color: var(--color_three);
+    background-color: var(--color_two);
+    border: 2px solid var(--color_three) ;
+    border-radius: 5px;
+    font-size: 3vw;
+    margin-top: 30px;
+    padding: 3px 20px 3px 20px;
+    text-align-last: center;
+}
 /*responsive*/
 
 @media screen and (max-width: 600px){
@@ -88,7 +134,7 @@ h1 {
     .form_container_two, 
     .form_container_three, 
     .form_container_four,
-    .form_container_one input,
+    .form_container_one select,
     .form_container_two select, 
     .form_container_three select, 
     .form_container_four select, 
@@ -109,7 +155,7 @@ h1 {
     .form_container_two, 
     .form_container_three, 
     .form_container_four,
-    .form_container_one input,
+    .form_container_one select,
     .form_container_two select, 
     .form_container_three select, 
     .form_container_four select, 
