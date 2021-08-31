@@ -63,6 +63,19 @@ h1 {
     text-align-last: center;
 }
 
+/*styles to card question*/
+
+.card_question{
+    background-color: var(--color_two);
+    height: 100%;
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    z-index: 1; 
+    overflow-x: hidden;
+    transition: .3s; 
+}
+
 /*responsive*/
 
 @media screen and (max-width: 600px){

@@ -49,14 +49,17 @@ const paint = (data,dataLenght) => {
     }
     else{  
         answers.splice(positionAnswer,0,correctAnswer)
-        card.innerHTML = `<h2> Categoty :${data[p].category}</h2>
-        <h3> Difficulty :${data[p].difficulty}</h3>
-        <p>Question: ${data[p].question}</p>
-        <div id="questions">
-            <p>${data[p].incorrect_answers[0]}</p>
-            <p>${data[p].incorrect_answers[1]}</p>
-        </div>
-        <button id="next">Next</button>`       
+        card.innerHTML = 
+        `<div class="card_question">
+            <h2> Categoty :${data[p].category}</h2>
+            <h3> Difficulty :${data[p].difficulty}</h3>
+            <p>Question: ${data[p].question}</p>
+            <div id="questions">
+                <p>${data[p].incorrect_answers[0]}</p>
+                <p>${data[p].incorrect_answers[1]}</p>
+            </div>
+            <button id="next">Next</button>
+         </div>`       
     }
    const questions = document.getElementById("questions"); 
    const next = document.getElementById("next");
