@@ -39,14 +39,14 @@ const paint = (data,dataLenght) => {
             <h3>Difficulty<br><span>${data[p].difficulty}</span></h3>
                 <h4>Question<br><span>${data[p].question}</span></h4>
                 <div id="questions" class="question_one">
-                <div class="data_container_answer_one">
-                    <p>${data[p].incorrect_answers[0]}</p>
-                    <p>${data[p].incorrect_answers[1]}</p>
-                </div> 
-                <div class="data_container_answer_two">   
-                    <p>${data[p].incorrect_answers[2]}</p>
-                    <p>${data[p].incorrect_answers[3]}</p>  
-                </div>    
+                    <div class="data_container_answer_one">
+                        <p>${data[p].incorrect_answers[0]}</p>
+                        <p>${data[p].incorrect_answers[1]}</p>
+                    </div> 
+                    <div class="data_container_answer_two">   
+                        <p>${data[p].incorrect_answers[2]}</p>
+                        <p>${data[p].incorrect_answers[3]}</p>  
+                    </div>    
                 </div> 
                 <button id="next" class="next">Next</button>
             </div> `
@@ -69,6 +69,7 @@ const paint = (data,dataLenght) => {
    const next = document.getElementById("next");
    questions.addEventListener('click',(e)=>{answer(e,data)}); 
    next.addEventListener('click',()=>{nextQuestion(data,dataLenght)});  
+   console.log(data)
 }
 
 
@@ -76,7 +77,7 @@ const paint = (data,dataLenght) => {
 function answer(e,data){
     
     if(s===p || s < p  ){
-
+    
     if(e.target.textContent === data[p].correct_answer){
         s += 1;
         console.log('puto')
@@ -88,9 +89,29 @@ function answer(e,data){
         s -= 1;
         console.log(s)
     }
+
+   pcolor(e)
+   
+
 }
 
-    
+function pcolor(e){
+    const p = e.target.parentElement.parentElement;
+    const tagName = p.getElementsByTagName("p");
+   if(tagName.length>2){
+    tagName[0].style.color="#ffff"
+    tagName[1].style.color="#ffff"
+    tagName[2].style.color="#ffff"
+    tagName[3].style.color="#ffff"
+    setTimeout(()=>{  e.target.style.color="#008CBA" }, .1000);
+    console.log(tagName)}
+    else {
+        tagName[0].style.color="#ffff"
+        tagName[1].style.color="#ffff"
+        setTimeout(()=>{  e.target.style.color="#008CBA" }, .1000);
+    }
+}    
+
 /*function that paint in html the fist the nexts question from the json*/
 function nextQuestion(data,dataLenght){
     p += 1

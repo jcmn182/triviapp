@@ -68,6 +68,12 @@ h1 {
     z-index: 1; 
 }
 
+.card_question h2{
+    padding-top: 50px;
+}
+
+
+
 .card_question h2, h3, h4{
     font-family: var( --font_family_one);
     font-size: 3vw;
@@ -85,6 +91,7 @@ h1 {
 }
 
 .question_one{
+    color:var(--color_three);
     display: flex;
     justify-content: space-around;
     font-family: var( --font_family_two);
@@ -95,6 +102,7 @@ h1 {
 
 
 .question_two{
+    color:var(--color_three);
     display: flex;
     justify-content: space-around;
     font-family: var( --font_family_two);
@@ -139,6 +147,7 @@ h1 {
 }
 
 .card_final_score div {
+    height: 100%;
     padding-top: 100px;
 }
 
@@ -203,18 +212,18 @@ h1 {
     .form_container_four select, 
     .form_container_four input
     {
-        font-size: 8vw;
+        font-size: 9vw;
     }
 
      /*responsive to questions section*/
 
     .card_question h2, h3, h4{
-        font-size: 6vw;
+        font-size: 7vw;
     }
 
     .card_question span {
         
-        font-size: 4vw;
+        font-size: 5vw;
     }
 
     .question_one{
@@ -225,6 +234,10 @@ h1 {
     .question_two{
         font-size: 4vw;
         
+    }
+
+    .next{
+        font-size: 6vw;
     }
 
     /*responsive final view*/
