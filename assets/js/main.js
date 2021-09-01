@@ -35,17 +35,17 @@ const paint = (data,dataLenght) => {
         answers.splice(positionAnswer,0,correctAnswer)
         card.innerHTML = 
         `<div class="card_question">
-            <h2> Category <br> <span>${data[p].category}</span></h2>
-            <h3> Difficulty <br> <span>${data[p].difficulty}</span></h3>
-                <h4>Question <br> <span>${data[p].question}</span></h4>
-                <div id="questions" class="question_one" >
+            <h2>Categoty<br><span>${data[p].category}</span></h2>
+            <h3>Difficulty<br><span>${data[p].difficulty}</span></h3>
+                <h4>Question<br><span>${data[p].question}</span></h4>
+                <div id="questions" class="question_one">
                 <div class="data_container_answer_one">
-                    <p> 1.- ${data[p].incorrect_answers[0]}</p>
-                    <p> 2.- ${data[p].incorrect_answers[1]}</p>
+                    <p>${data[p].incorrect_answers[0]}</p>
+                    <p>${data[p].incorrect_answers[1]}</p>
                 </div> 
                 <div class="data_container_answer_two">   
-                    <p> 3.- ${data[p].incorrect_answers[2]}</p>
-                    <p> 4.- ${data[p].incorrect_answers[3]}</p>  
+                    <p>${data[p].incorrect_answers[2]}</p>
+                    <p>${data[p].incorrect_answers[3]}</p>  
                 </div>    
                 </div> 
                 <button id="next" class="next">Next</button>
@@ -74,16 +74,17 @@ const paint = (data,dataLenght) => {
 
 /*a funcion that store and control the score from the questions*/
 function answer(e,data){
-
+    
     if(s===p || s < p  ){
 
     if(e.target.textContent === data[p].correct_answer){
         s += 1;
-       
+        console.log('puto')
         console.log(s)
     } }
 
     else if (s===p || s > p && e.target.textContent !== data[p].correct_answer ){
+        console.log('putisimo')
         s -= 1;
         console.log(s)
     }
@@ -111,7 +112,7 @@ function nextQuestion(data,dataLenght){
                     <p>${data[p].incorrect_answers[0]}</p>
                     <p>${data[p].incorrect_answers[1]}</p>
                 </div> 
-                <div class="data_container_answer_one">   
+                <div class="data_container_answer_two">   
                     <p>${data[p].incorrect_answers[2]}</p>
                     <p>${data[p].incorrect_answers[3]}</p>  
                 </div>    
@@ -155,26 +156,32 @@ function finalQuestion(s,dataLenght){
     if (percentage>80){
     card.innerHTML = `
         <div class="card_final_score">
-            <h2>Your score is ${s}!!</h2>
-            <p>Congrats!!</p>
-            <a href="">Play again</a>
+            <div>
+                <h2>Your score is ${s}!!</h2>
+                <p>Congrats !!</p>
+                <a href="">Play again</a>
+            </div>    
         </div>`
     }
    else if  (percentage>50){
     card.innerHTML = `
     <div class="card_final_score">
-        <h2>Your score is ${s}!!</h2>
-        <p>You should study a little</p>
-        <a href="">Play again</a>
-    </div> `
+            <div>
+                <h2>Your score is ${s}!!</h2>
+                <p>You should study a little</p>
+                <a href="">Play again</a>
+            </div>    
+        </div>`
    }
    else  {
     card.innerHTML = `
     <div class="card_final_score">
-        <h2>Your score is ${s}!!</h2>
-        <p>You need go back to school :(</p>
-        <a href="">Play again</a>
-    </div>`
+            <div>
+                <h2>Your score is ${s}!!</h2>
+                <p>You need go back to school :(</p>
+                <a href="">Play again</a>
+            </div>    
+        </div>`
    }
 }
 

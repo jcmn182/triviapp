@@ -79,6 +79,11 @@ h1 {
     font-size: 2vw;
 }
 
+.data_container_answer_one p,
+.data_container_answer_two p{
+    padding: 10px;
+}
+
 .question_one{
     display: flex;
     justify-content: space-around;
@@ -88,14 +93,11 @@ h1 {
     width: 50%;
 }
 
-.data_container_answer_one p, 
-.data_container_answer_two p{
-    padding: 10px;
-}
 
 .question_two{
     display: flex;
     justify-content: space-around;
+    font-family: var( --font_family_two);
     font-size: 2vw;
     margin: 20px;
     width: 30%;
@@ -122,6 +124,27 @@ h1 {
     padding: 3px 20px 3px 20px;
     text-align-last: center;
 }
+
+.card_final_score{
+    background-color: var(--color_two);
+    color:var(--color_three);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: var( --font_family_one);
+    font-size: 5vw;
+    text-align: center;
+    height: 100%;
+    width: 100%;   
+}
+
+.card_final_score div {
+    padding-top: 100px;
+}
+
+.card_final_score a {
+    color: var( --color_four);
+}
 /*responsive*/
 
 @media screen and (max-width: 600px){
@@ -143,6 +166,25 @@ h1 {
         font-size: 5vw;
     }
 
+    /*responsive to questions section*/
+
+    .card_question h2, h3, h4{
+        font-size: 5vw;
+    }
+
+    .card_question span {
+        
+        font-size: 3vw;
+    }
+
+    .question_one{
+        font-size: 3vw;
+    }
+
+    .question_two{
+        font-size: 3vw;
+    }
+
 }
 
 @media screen and (max-width: 420px){
@@ -162,6 +204,32 @@ h1 {
     .form_container_four input
     {
         font-size: 8vw;
+    }
+
+     /*responsive to questions section*/
+
+    .card_question h2, h3, h4{
+        font-size: 6vw;
+    }
+
+    .card_question span {
+        
+        font-size: 4vw;
+    }
+
+    .question_one{
+        font-size: 4vw;
+        width: 80%;
+    }
+
+    .question_two{
+        font-size: 4vw;
+        
+    }
+
+    /*responsive final view*/
+    .card_final_score{
+        font-size: 7vw;     
     }
 
 }
